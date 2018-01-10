@@ -1,0 +1,10 @@
+{
+    "apps": [{
+        "name": "userly-api",
+        "script": "dist.api/server.js",
+        "env": {
+            "NODE_ENV": "production",
+            "NODE_CONFIG_DIR": "./config"
+        }
+    }]
+}
