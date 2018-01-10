@@ -1,7 +1,7 @@
 import * as classrouter from 'classrouter';
 import * as IModel from 'core/model';
 import * as ICommon from 'core/common';
-import { UserToken, ClientToken } from 'core/token';
+import {  ClientToken } from 'core/token';
 import { jsonBodyParser } from '../parser';
 import * as errors from '../errors';
 
