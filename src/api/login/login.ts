@@ -5,13 +5,6 @@ import { findLockupUser, testPassword, doLogin } from 'core/service/user/login';
 import { ILoginResult } from 'core/service/user/interface';
 
 import { jsonBodyParser } from '../parser';
-import * as errors from '../errors';
-
-
-
-
-
-
 
 @classrouter.POST
 @classrouter.PATH('/login')
@@ -31,10 +24,6 @@ export class Login implements classrouter.IRoute {
     @classrouter.validator.IsNotEmpty()
     @classrouter.validator.IsString()
     password: string
-
-
-
-
 
     async findUser() {
         let client = await this.clientToken();

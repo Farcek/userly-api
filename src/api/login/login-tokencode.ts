@@ -8,12 +8,6 @@ import { ILoginResult } from 'core/service/user/interface';
 import { jsonBodyParser } from '../parser';
 import * as errors from '../errors';
 
-
-
-
-
-
-
 @classrouter.POST
 @classrouter.PATH('/login-tokencode')
 @classrouter.before(jsonBodyParser)
@@ -27,11 +21,6 @@ export class LoginTokencode implements classrouter.IRoute {
     @classrouter.validator.IsNotEmpty()
     @classrouter.validator.IsString()
     tokencode: string
-
-
-
-
-
 
 
     async findUser() {

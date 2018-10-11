@@ -3,29 +3,13 @@ var nodeExternals = require('webpack-node-externals');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 
-
-
-
-
-
 var ourDir = path.resolve(__dirname, './dist.api');
-
-var externalApi = nodeExternals({
-    modulesDir: path.join(__dirname, './node_modules')
-});
-
-
-// var externalConfig = function(context, request, callback) {
-//     if (request === '../config/index') {
-//         return callback(null, 'commonjs ' + request);
-//     }
-//     callback();
-// };
 
 
 module.exports = {
     target: "node",
     node: {
+        fs: false,
         console: false,
         global: false,
         process: false,
@@ -37,18 +21,26 @@ module.exports = {
     entry: [
         './src/serve.ts',
     ],
-    devtool: 'inline-source-map',
     output: {
         filename: 'server.js',
         path: ourDir
     },
-    externals: [externalApi],
+    externals: [
+        nodeExternals({
+            whitelist : ["classrouter"]
+        })
+        // /^(tedious|\$)$/i,
+        // /config/i,
+        // /sequelize/i,
+        // /^(sqlite3|\$)$/i,
+        // /^(pg-native|\$)$/i,
+    ],
 
     module: {
         rules: [{
-            test: /\.ts?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/
+            test: /\.tsx?$/,
+            loader: 'ts-loader',
+            exclude: [/node_modules/],
         }, {
             test: /\.sql$/,
             loader: "raw-loader",

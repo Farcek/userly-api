@@ -1,29 +1,13 @@
 import * as classrouter from 'classrouter';
 import * as IModel from 'core/model';
-import * as ICommon from 'core/common';
-import { ConsoleToken } from 'core/token';
-import { jsonBodyParser } from '../parser';
-
-
-
-
-
-
-
-
-
-
 
 @classrouter.GET
 @classrouter.PATH('/')
 export class Load implements classrouter.IRoute {
 
 
-
-
     @classrouter.ReqestParam()
     clientToken: () => Promise<IModel.IClient.IInstance>
-
 
     async action() {
 

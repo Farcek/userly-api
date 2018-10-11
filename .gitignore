@@ -1,7 +1,9 @@
-/node_modules/*
+/node_modules/
 /dist.api*
 /.vscode/*
 /config/development.js
-/sql.log
 /config/production.js
+/sql.log
 /deploy.js
+/package-lock.json
+/config/staging.js
